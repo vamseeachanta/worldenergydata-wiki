@@ -13,9 +13,19 @@ Post the 2026-05-20 `vamseeachanta/llm-wiki` privacy flip, this manifest records
 
 **This repo is NEW (2026-05-20)**, scaffolded to be the public sibling for BSEE / NOAA / USGS / MMS derived knowledge. As a NEW repo, this is not a content-relocation migration but a forward-routing baseline.
 
-## What MOVES (nothing yet — forward-routing only)
+## What MOVES (decision-pending — forward-routing baseline)
 
-No existing wiki pages move from any repo into this one. The reason: there are no existing derived BSEE/NOAA/USGS/MMS wiki pages anywhere in the ecosystem prior to 2026-05-20. The earlier proposal in `workspace-hub:docs/governance/2026-05-14-service-provider-data-routing-and-bsee-ingest-design.md` D1 row 5 ("regulator records → public llm-wiki") was never actioned beyond the precedent landing of `wikis/drilling-engineering/wiki/sources/papkov-bsee-citation.md` — and that single page was URL-only metadata (Papkov-style), not derivative analysis. It stays in the (now-private) llm-wiki as historical material.
+The default policy is forward-routing only (no migration of existing pages). However, the private llm-wiki holds at least two substantive BSEE/regulator-derived pages dated before this routing decision:
+
+- `vamseeachanta/llm-wiki:wikis/asset-management/wiki/sources/bsee-2024-deepwater-dynamic-pipeline-riser-life-extension.md` — substantive (100+ line) BSEE-derived analysis on deepwater dynamic-pipeline-riser life extension.
+- `vamseeachanta/llm-wiki:wikis/marine-engineering/wiki/sources/hwcg-2026-bsee-boem-deepwater-containment-tour.md` — derivative BSEE/BOEM containment-tour source page.
+
+**Migration disposition (deferred to per-page decision):** these pre-date the 2026-05-20 routing decision and were authored under the old "public llm-wiki" assumption. Two options for each:
+
+1. **Migrate to `worldenergydata-wiki`** — public-domain BSEE substrate, no vendor-licensed admixture, no client identifiers → fits the new public sibling.
+2. **Stay in private llm-wiki with rationale** — if the page mixes BSEE substrate with vendor-licensed standards interpretation or client-deliverable context, the conservative private routing applies (per Option C escape hatch in the decision doc).
+
+Per-page disposition recorded as a follow-on issue (not this migration). No content is moved in the immediate scaffold step.
 
 ## What STAYS at its current location
 
@@ -43,7 +53,7 @@ No existing wiki pages move from any repo into this one. The reason: there are n
 | Artifact class | Lands at | Why private |
 |---|---|---|
 | Vendor-licensed standards (OCIMF, API, DNV, ABS, IACS, etc.) | `vamseeachanta/llm-wiki:wikis/<domain>/wiki/standards/` | Vendor copyright; settled by routing rule §1-5 |
-| Client-project content (B1528, SIROCCO, acma-projects) | `vamseeachanta/llm-wiki-acma` or `vamseeachanta/llm-wiki` | Client confidentiality |
+| Client-project content (per private deny-list) | private client-scoped wikis | Client confidentiality — specific project identifiers held off-repo |
 | Derived analyses with mixed public/vendor substrate | `vamseeachanta/llm-wiki` | Conservative routing when public-domain status is not 100% clear |
 
 ## Decision-revision triggers
