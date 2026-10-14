@@ -15,13 +15,13 @@ Run:  python3 scripts/build_pages.py   (writes public/, gitignored)
 from __future__ import annotations
 
 import html
+import argparse
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 WIKI = ROOT / "wiki"
 PUBLIC = ROOT / "public"
-ASSETS = PUBLIC / "assets"
 
 DOMAINS = ["bsee", "noaa", "usgs", "mms"]
 
@@ -167,17 +167,20 @@ def shell(title: str, body: str) -> str:
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)} · worldenergydata-wiki</title>
-<link rel="stylesheet" href="assets/style.css"></head>
+<style>{STYLE}</style></head>
 <body><header class="site"><a class="home" href="index.html">worldenergydata-wiki</a>{NAV}</header>
 <main>{body}</main>
 <footer class="site">
 <p>Public-domain US federal energy data (17 USC §105). Wiki prose CC-BY-4.0; code MIT. Public-domain status preserved through derivation.</p>
 <p>Companion library: <a href="https://github.com/vamseeachanta/worldenergydata">vamseeachanta/worldenergydata</a> · <a href="https://github.com/vamseeachanta/worldenergydata-wiki">source</a></p>
-</footer></body></html>"""
+</footer></body></html>
+"""
 
 
 def badges(meta: dict) -> str:
     out = []
+    if meta.get("visibility"):
+        out.append(f'<span class="badge">{html.escape(str(meta["visibility"]))}</span>')
     lic = meta.get("license", "")
     if lic:
         out.append(f'<span class="badge gov">{html.escape(str(lic))}</span>')
@@ -197,20 +200,37 @@ def provenance(meta: dict) -> str:
     return f'<p class="prov"><strong>Provenance.</strong> {auth}. {("Sources: " + links) if links else ""}</p>'
 
 
-def build():
-    PUBLIC.mkdir(exist_ok=True)
-    ASSETS.mkdir(exist_ok=True)
-    (ASSETS / "style.css").write_text(STYLE, encoding="utf-8")
+def published_pages() -> dict[str, Path | None]:
+    """The builder's complete page inventory; the landing page has no source file."""
+    return {"index.html": None, **{
+        f"{domain}.html": WIKI / domain / "index.md"
+        for domain in DOMAINS if (WIKI / domain / "index.md").exists()
+    }}
+
+
+def data_limits() -> str:
+    return ('<aside class="data-limits"><strong>Data limits.</strong> '
+            'This wiki contains summaries, not complete datasets. Check source coverage, '
+            'update dates, missing records and contribution rights before reuse. '
+            'Mixed-contributor datasets retain only a redacted public summary here; '
+            'full data remain outside this wiki.</aside>')
+
+
+def build(output: Path | None = None):
+    output = PUBLIC if output is None else output
+    output.mkdir(parents=True, exist_ok=True)
 
     built = []
-    for d in DOMAINS:
-        src = WIKI / d / "index.md"
-        if not src.exists():
+    landing_disclosures = []
+    for page, src in published_pages().items():
+        if src is None:
             continue
+        d = src.parent.name
         meta, body = split_frontmatter(src.read_text(encoding="utf-8"))
         title = meta.get("title", d.upper())
-        page_body = badges(meta) + provenance(meta) + f'<div class="content">{md_to_html(body)}</div>'
-        (PUBLIC / f"{d}.html").write_text(shell(str(title), page_body), encoding="utf-8")
+        page_body = badges(meta) + provenance(meta) + data_limits() + f'<div class="content">{md_to_html(body)}</div>'
+        (output / page).write_text(shell(str(title), page_body), encoding="utf-8")
+        landing_disclosures.append(badges(meta) + provenance(meta))
         built.append(d)
 
     # Landing
@@ -220,6 +240,8 @@ def build():
     )
     landing = shell("Public-domain US federal energy data wiki", f"""
 <h1>worldenergydata-wiki</h1>
+{"".join(landing_disclosures)}
+{data_limits()}
 <p>Derived knowledge pages for US federal energy data corpora — BSEE, NOAA, USGS, MMS.
 Every page is built from public-domain federal sources and stamped with its source
 authority, license, and last license-check date. No API key, no server.</p>
@@ -233,11 +255,13 @@ license tier of its source.</p>
 each page's YAML-frontmatter provenance (source authority, license, last check) as visible
 badges. Built output is regenerated in CI — what ships always matches source.</p>
 """)
-    (PUBLIC / "index.html").write_text(landing, encoding="utf-8")
+    (output / "index.html").write_text(landing, encoding="utf-8")
 
-    pages = sorted(p.name for p in PUBLIC.glob("*.html"))
+    pages = sorted(published_pages())
     print(f"Built {len(pages)} pages: {', '.join(pages)}")
 
 
 if __name__ == "__main__":
-    build()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=PUBLIC)
+    build(parser.parse_args().output)

@@ -1,0 +1,267 @@
+{
+  "local_build": [
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": true
+      },
+      "bytes": 6746,
+      "data_limits": true,
+      "page": "index.html",
+      "provenance": true,
+      "sha256": "579fea915a562384cf2f4395dc0e2ce1953b24055f6a02a82eae401acf3adf3d",
+      "site_build_time": null,
+      "site_commit": null
+    },
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": true
+      },
+      "bytes": 5921,
+      "data_limits": true,
+      "page": "bsee.html",
+      "provenance": true,
+      "sha256": "9dec5b0406fc63248b90f41c9d3196827c831f19b8a4f341f5a77ef0ba25a41f",
+      "site_build_time": null,
+      "site_commit": null
+    },
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": true
+      },
+      "bytes": 5827,
+      "data_limits": true,
+      "page": "noaa.html",
+      "provenance": true,
+      "sha256": "8fce9468e98e82662d7e160306f6ca35735c75dc81708f427b310c2040c4ad32",
+      "site_build_time": null,
+      "site_commit": null
+    },
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": true
+      },
+      "bytes": 5774,
+      "data_limits": true,
+      "page": "usgs.html",
+      "provenance": true,
+      "sha256": "5dae49c249dcb7ef89a72ebc5045fcb973d24f015a0fbf4cf872f2cf9e051f84",
+      "site_build_time": null,
+      "site_commit": null
+    },
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": true
+      },
+      "bytes": 6190,
+      "data_limits": true,
+      "page": "mms.html",
+      "provenance": true,
+      "sha256": "8586f7364a44d74e83a714c51f6f20b777d63e397ec33ba8b556d2c0892cb86e",
+      "site_build_time": null,
+      "site_commit": null
+    }
+  ],
+  "pages": [
+    {
+      "badges": {
+        "last_license_check": false,
+        "license": false,
+        "source_authority": false,
+        "visibility": false
+      },
+      "data_limits": false,
+      "error": null,
+      "expected": {
+        "last_license_check": [
+          "2026-05-20"
+        ],
+        "license": [
+          "public-domain"
+        ],
+        "source_authority": [
+          "Bureau of Safety and Environmental Enforcement (US DOI)",
+          "Minerals Management Service (US DOI, dissolved 2010)",
+          "National Oceanic and Atmospheric Administration (US DOC)",
+          "US Geological Survey (US DOI)"
+        ],
+        "visibility": [
+          "public-federal-data"
+        ]
+      },
+      "http_last_modified": "Mon, 22 Jun 2026 15:26:31 GMT",
+      "http_status": 200,
+      "page": "index.html",
+      "passed": false,
+      "provenance": false,
+      "request_started_at": "2026-10-14T21:27:12Z",
+      "response_bytes": 2213,
+      "response_sha256": "452dd5effffaf4d2a0037b01c47a3addf50b17c9990c7d2ae65842f77c92cd2b",
+      "retrieved_at": "2026-10-14T21:27:12Z",
+      "site_build_time": null,
+      "site_commit": null,
+      "url": "https://vamseeachanta.github.io/worldenergydata-wiki/index.html"
+    },
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": false
+      },
+      "data_limits": false,
+      "error": null,
+      "expected": {
+        "last_license_check": [
+          "2026-05-20"
+        ],
+        "license": [
+          "public-domain"
+        ],
+        "source_authority": [
+          "Bureau of Safety and Environmental Enforcement (US DOI)"
+        ],
+        "visibility": [
+          "public-federal-data"
+        ]
+      },
+      "http_last_modified": "Mon, 22 Jun 2026 15:26:30 GMT",
+      "http_status": 200,
+      "page": "bsee.html",
+      "passed": false,
+      "provenance": true,
+      "request_started_at": "2026-10-14T21:27:13Z",
+      "response_bytes": 3454,
+      "response_sha256": "f77a6ec1dd1e957bbbde7a9612b6b4a82b5858362f6deb9e65a6c6e4a7c73b89",
+      "retrieved_at": "2026-10-14T21:27:13Z",
+      "site_build_time": null,
+      "site_commit": null,
+      "url": "https://vamseeachanta.github.io/worldenergydata-wiki/bsee.html"
+    },
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": false
+      },
+      "data_limits": false,
+      "error": null,
+      "expected": {
+        "last_license_check": [
+          "2026-05-20"
+        ],
+        "license": [
+          "public-domain"
+        ],
+        "source_authority": [
+          "National Oceanic and Atmospheric Administration (US DOC)"
+        ],
+        "visibility": [
+          "public-federal-data"
+        ]
+      },
+      "http_last_modified": "Mon, 22 Jun 2026 15:26:30 GMT",
+      "http_status": 200,
+      "page": "noaa.html",
+      "passed": false,
+      "provenance": true,
+      "request_started_at": "2026-10-14T21:27:14Z",
+      "response_bytes": 3360,
+      "response_sha256": "8d2b5f85c08836b32c7906d90dac621a0da4871f230a68717a60a1bbb6c29ef9",
+      "retrieved_at": "2026-10-14T21:27:14Z",
+      "site_build_time": null,
+      "site_commit": null,
+      "url": "https://vamseeachanta.github.io/worldenergydata-wiki/noaa.html"
+    },
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": false
+      },
+      "data_limits": false,
+      "error": null,
+      "expected": {
+        "last_license_check": [
+          "2026-05-20"
+        ],
+        "license": [
+          "public-domain"
+        ],
+        "source_authority": [
+          "US Geological Survey (US DOI)"
+        ],
+        "visibility": [
+          "public-federal-data"
+        ]
+      },
+      "http_last_modified": "Mon, 22 Jun 2026 15:26:31 GMT",
+      "http_status": 200,
+      "page": "usgs.html",
+      "passed": false,
+      "provenance": true,
+      "request_started_at": "2026-10-14T21:27:15Z",
+      "response_bytes": 3307,
+      "response_sha256": "3ba8a7f881c74ffa0c561331b8f043087e20d37766df4a48549e343b2d68a21e",
+      "retrieved_at": "2026-10-14T21:27:16Z",
+      "site_build_time": null,
+      "site_commit": null,
+      "url": "https://vamseeachanta.github.io/worldenergydata-wiki/usgs.html"
+    },
+    {
+      "badges": {
+        "last_license_check": true,
+        "license": true,
+        "source_authority": true,
+        "visibility": false
+      },
+      "data_limits": false,
+      "error": null,
+      "expected": {
+        "last_license_check": [
+          "2026-05-20"
+        ],
+        "license": [
+          "public-domain"
+        ],
+        "source_authority": [
+          "Minerals Management Service (US DOI, dissolved 2010)"
+        ],
+        "visibility": [
+          "public-federal-data"
+        ]
+      },
+      "http_last_modified": "Mon, 22 Jun 2026 15:26:31 GMT",
+      "http_status": 200,
+      "page": "mms.html",
+      "passed": false,
+      "provenance": true,
+      "request_started_at": "2026-10-14T21:27:17Z",
+      "response_bytes": 3723,
+      "response_sha256": "e494e90bda3525281c8b880601215e49c4e08885b0fad85e9761eb20ea4c9e05",
+      "retrieved_at": "2026-10-14T21:27:17Z",
+      "site_build_time": null,
+      "site_commit": null,
+      "url": "https://vamseeachanta.github.io/worldenergydata-wiki/mms.html"
+    }
+  ],
+  "revision": "1",
+  "site": "https://vamseeachanta.github.io/worldenergydata-wiki/",
+  "source_commit": "8f4890259fcf9e754b1c91faf12127128d239fe3"
+}
