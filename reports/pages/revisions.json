@@ -1,0 +1,7 @@
+[
+  {
+    "revision": "1",
+    "date": "2026-10-14",
+    "change": "Record live disclosures and source corrections so deployment gaps can be checked after rebuilding."
+  }
+]
